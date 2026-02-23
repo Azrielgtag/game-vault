@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Game Vault — Hundreds of Games, Endless Fun</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Fonts: Rajdhani (display) + Exo 2 (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ============================================================
+     PARTICLE CANVAS BACKGROUND
+============================================================ -->
+<canvas id="particleCanvas"></canvas>
+
+<!-- ============================================================
+     NAVIGATION BAR
+============================================================ -->
+<nav id="navbar">
+  <div class="nav-brand">
+    <span class="logo-icon">⬡</span>
+    <span class="logo-text">Game<span class="accent">Vault</span></span>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#games" data-filter="all" class="nav-cat active">All</a></li>
+    <li><a href="#games" data-filter="arcade" class="nav-cat">Arcade</a></li>
+    <li><a href="#games" data-filter="puzzle" class="nav-cat">Puzzle</a></li>
+    <li><a href="#games" data-filter="strategy" class="nav-cat">Strategy</a></li>
+    <li><a href="#games" data-filter="reaction" class="nav-cat">Reaction</a></li>
+    <li><a href="#games" data-filter="casual" class="nav-cat">Casual</a></li>
+    <li><a href="#tools" class="nav-cat">Tools</a></li>
+    <li><a href="#leaderboard" class="nav-cat">Leaderboard</a></li>
+  </ul>
+</nav>
+
+<!-- ============================================================
+     HERO SECTION
+============================================================ -->
+<section id="hero">
+  <div class="hero-content">
+    <div class="hero-badge">🎮 Free to Play · No Downloads</div>
+    <h1 class="hero-title">
+      <span class="line1">GAME</span>
+      <span class="line2">VAULT</span>
+    </h1>
+    <p class="hero-tagline">Hundreds of Games, Endless Fun</p>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num" data-target="200">0</span><span>+</span><div class="stat-label">Games</div></div>
+      <div class="stat-div"></div>
+      <div class="stat"><span class="stat-num" data-target="12">0</span><span></span><div class="stat-label">Categories</div></div>
+      <div class="stat-div"></div>
+      <div class="stat"><span class="stat-num" data-target="50000">0</span><span>+</span><div class="stat-label">Players</div></div>
+    </div>
+    <div class="hero-cta">
+      <a href="#games" class="btn btn-primary">Start Playing</a>
+      <a href="#tools" class="btn btn-outline">Explore Tools</a>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">↓ scroll</div>
+</section>
+
+<!-- ============================================================
+     GAMES SECTION
+============================================================ -->
+<section id="games">
+  <div class="section-header">
+    <h2 class="section-title">Game <span class="accent">Library</span></h2>
+    <p class="section-sub">Click any card to play instantly in your browser</p>
+  </div>
+
+  <!-- Search + Filter Bar -->
+  <div class="filter-bar">
+    <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search games..." />
+    <div class="filter-tabs">
+      <button class="filter-btn active" data-cat="all">All</button>
+      <button class="filter-btn" data-cat="arcade">🕹 Arcade</button>
+      <button class="filter-btn" data-cat="puzzle">🧩 Puzzle</button>
+      <button class="filter-btn" data-cat="strategy">♟ Strategy</button>
+      <button class="filter-btn" data-cat="reaction">⚡ Reaction</button>
+      <button class="filter-btn" data-cat="casual">🎯 Casual</button>
+    </div>
+  </div>
+
+  <!-- Game Grid -->
+  <div class="games-grid" id="gamesGrid"></div>
+  <button class="btn btn-outline load-more" id="loadMoreBtn">Load More Games</button>
+</section>
+
+<!-- ============================================================
+     TOOLS SECTION
+============================================================ -->
+<section id="tools">
+  <div class="section-header">
+    <h2 class="section-title">Fun <span class="accent">Tools</span></h2>
+    <p class="section-sub">Interactive tools for when you need a laugh or a random decision</p>
+  </div>
+  <div class="tools-grid" id="toolsGrid"></div>
+</section>
+
+<!-- ============================================================
+     LEADERBOARD SECTION
+============================================================ -->
+<section id="leaderboard">
+  <div class="section-header">
+    <h2 class="section-title">🏆 <span class="accent">Leaderboard</span></h2>
+    <p class="section-sub">Top players across all games today</p>
+  </div>
+  <div class="leaderboard-wrap">
+    <div class="lb-tabs">
+      <button class="lb-tab active" data-lb="global">🌍 Global</button>
+      <button class="lb-tab" data-lb="daily">📅 Daily</button>
+      <button class="lb-tab" data-lb="weekly">📆 Weekly</button>
+    </div>
+    <div class="lb-table" id="lbTable"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer id="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo-icon">⬡</span>
+      <span class="logo-text">Game<span class="accent">Vault</span></span>
+      <p class="footer-tagline">Your ultimate boredom cure.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Explore</h4>
+      <a href="#games">Games</a>
+      <a href="#tools">Tools</a>
+      <a href="#leaderboard">Leaderboard</a>
+    </div>
+    <div class="footer-links">
+      <h4>Info</h4>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms</a>
+    </div>
+    <div class="footer-links">
+      <h4>Social</h4>
+      <a href="#">Twitter / X</a>
+      <a href="#">Discord</a>
+      <a href="#">GitHub</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Game Vault · Built with ❤️ and lots of ☕</p>
+  </div>
+</footer>
+
+<!-- ============================================================
+     GAME / TOOL MODAL
+============================================================ -->
+<div id="gameModal" class="modal" role="dialog" aria-modal="true" aria-label="Game Popup">
+  <div class="modal-inner">
+    <div class="modal-header">
+      <h3 id="modalTitle">Game Title</h3>
+      <div class="modal-controls">
+        <button class="modal-btn" id="fullscreenBtn" title="Fullscreen">⛶</button>
+        <button class="modal-btn modal-close" id="closeModal" title="Close">✕</button>
+      </div>
+    </div>
+    <div class="modal-body" id="modalBody">
+      <!-- iframe or tool content injected here -->
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" id="closeModalFooter">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     TOAST NOTIFICATION
+============================================================ -->
+<div id="toast" class="toast"></div>
+
+<script src="games.js"></script>
+<script src="tools.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
